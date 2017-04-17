@@ -11,27 +11,44 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "awesome-typescript-loader"
+        loader: 'awesome-typescript-loader',
+      }, {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       }, {
 				test: /\.css$/,
-				loader: 'style-loader!css-loader'
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }]
       }, {
-				test: /\.scss$/,
-				loader: 'style-loader!css-loader!sass-loader'
-			}, {
-        test: /\.jpg$|\.svg$/,
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "sass-loader" // compiles Sass to CSS
+        }]
+      }, {
+        test: /\.(png|jpe?g|gif|svg|ico)$/,
         loader: 'file-loader',
-      },
+      }
     ],
   },
   plugins: [new HtmlWebpackPlugin({
     title: 'The Great Goat Gala',
-//    favicon: path.resolve(__dirname, '..', 'images', 'favicon.ico'),
+    favicon: path.resolve(__dirname, '..', 'images', 'favicon.ico'),
     template: path.resolve(__dirname, '..', 'html', 'index.ejs'),
   })],
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
   devtool: 'cheap-module-eval-source-map',
 };

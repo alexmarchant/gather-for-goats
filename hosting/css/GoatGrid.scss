@@ -1,0 +1,44 @@
+.goat-grid__grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -12px;
+}
+
+.goat {
+  width: 44px;
+  height: auto;
+  margin: 12px;
+}
+
+.goat__filled {
+  @extend .goat;
+  background-size: 41px auto;
+  background-position: center 8px;
+  background-repeat: no-repeat;
+}
+
+.goat__filled--yellow {
+  @extend .goat__filled;
+  background-image: url('../images/fill-yellow.svg');
+}
+
+.goat__filled--pink {
+  @extend .goat__filled;
+  background-image: url('../images/fill-pink.svg');
+}
+
+.goat__filled--blue {
+  @extend .goat__filled;
+  background-image: url('../images/fill-blue.svg');
+}
+
+.goat__filled--brown {
+  @extend .goat__filled;
+  background-image: url('../images/fill-brown.svg');
+}
+
+.goat__filled--tan {
+  @extend .goat__filled;
+  background-image: url('../images/fill-tan.svg');
+}
+
