@@ -11,8 +11,6 @@ export default class Home extends React.Component<any, any> {
       <div className="home">
         <Header />
         <Nav />
-        <About />
-        <LearnMore />
         <GoatGrid purchasedGoats={10} />
       </div>
     );
@@ -40,9 +38,21 @@ interface NavState {
 class Nav extends React.Component<any, NavState> {
   constructor(props: any) {
     super(props);
+
     this.state = {
       activeSection: NavSection.None,
     };
+
+    this.handleInfoClick = this.handleInfoClick.bind(this);
+    this.handleAboutClick = this.handleAboutClick.bind(this);
+  }
+
+  handleInfoClick() {
+    this.setState({activeSection: NavSection.Info});
+  }
+
+  handleAboutClick() {
+    this.setState({activeSection: NavSection.About});
   }
 
   render() {
@@ -69,3 +79,4 @@ class Nav extends React.Component<any, NavState> {
     );
   }
 }
+

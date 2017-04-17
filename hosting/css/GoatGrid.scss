@@ -1,6 +1,39 @@
+@import './variables.scss';
+
+.goat-grid {
+  padding: 30px 25px 25px 25px;
+}
+
+.goat-grid__header {
+  margin-bottom: 35px;
+}
+
+.goat-grid__header-heading {
+  line-height: 1;
+  margin: 0;
+}
+
+.goat-grid__header-purchased-count {
+  @extend .goat-grid__header-heading;
+  font-family: $brandon-ff;
+  font-size: 76px;
+  font-weight: 800;
+  color: $red;
+  margin-bottom: 7px;
+}
+
+.goat-grid__header-subtitle {
+  @extend .goat-grid__header-heading;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
 .goat-grid__grid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: -12px;
 }
 

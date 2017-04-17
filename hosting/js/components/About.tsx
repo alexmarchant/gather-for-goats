@@ -3,7 +3,7 @@ import * as React from 'react';
 export default class About extends React.Component<any, any> {
   render() {
     return (
-      <div className="learn-more">
+      <div className="about">
         <h4>The Goal</h4>
         <p>
           Buy 800 goats for Syrian refugee families living in the Jordan desert to provide a sustainable source of nutrition and hydration for children in this uninhabited area.

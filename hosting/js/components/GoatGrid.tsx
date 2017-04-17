@@ -20,8 +20,10 @@ export default class GoatGrid extends React.Component<GoatGridProps, any> {
   render() {
     return (
       <div className="goat-grid">
-        <h3>{this.props.purchasedGoats}/800</h3>
-        <h3>Goats Purchased</h3>
+        <div className="goat-grid__header">
+          <h3 className="goat-grid__header-purchased-count">{this.props.purchasedGoats}/800</h3>
+          <h3 className="goat-grid__header-subtitle">Goats Purchased</h3>
+        </div>
         <div className="goat-grid__grid">
           {_.map(_.range(this.goatCount), (index) => (
             <Goat
