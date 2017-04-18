@@ -7,17 +7,21 @@ const gift = require('../../images/gift.svg');
 const goatx10 = require('../../images/goatx10.svg');
 
 export interface InfoProps {
-  handleClose: () => void;
+  handleClose?: () => void;
 }
 
 export default class Info extends React.Component<InfoProps, any> {
   render() {
     return (
       <div className="info">
-        <button
-          className="home__nav-section-close"
-          onClick={this.props.handleClose}
-        />
+        {
+          this.props.handleClose ?
+          <button
+            className="home__nav-section-close"
+            onClick={this.props.handleClose}
+          /> :
+          null
+        }
         <div className="info__section">
           <p><strong>
             A collaborative project for Lifting Hands International, a registered 501(c)(3) we carefully selected for their passionate dedication and impeccable efficiency!

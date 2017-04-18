@@ -42,7 +42,7 @@ module.exports = {
     ],
   },
   plugins: [new HtmlWebpackPlugin({
-    title: 'The Great Goat Gala',
+    title: 'Gather for Goats',
     favicon: path.resolve(__dirname, '..', 'images', 'favicon.ico'),
     template: path.resolve(__dirname, '..', 'html', 'index.ejs'),
   })],

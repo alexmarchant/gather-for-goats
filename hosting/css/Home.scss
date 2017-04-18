@@ -1,9 +1,31 @@
 @import './variables.scss';
 
+.home__mobile {
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.home__desktop {
+  display: none;
+  border: solid black 7px;
+  margin: 40px;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+}
+
 .home__header {
   text-align: center;
   padding: 29px 25px 27px 25px;
   background-color: $blue;
+
+  @media (min-width: 1024px) {
+    padding: 40px 57px 50px 57px;
+  }
 }
 
 .home__header h1 {
@@ -15,6 +37,11 @@
 
   @media (min-width: 375px) {
     font-size: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 78px;
+    margin-bottom: 0;
   }
 }
 
@@ -33,6 +60,11 @@
   line-height: 1.3;
   margin-top: 0;
   margin-bottom: 0;
+
+  @media (min-width: 1024px) {
+    font-size: 17px;
+    letter-spacing: 3px;
+  }
 }
 
 .home__nav {
@@ -92,5 +124,29 @@
   margin: 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+.home__desktop-col-left {
+  width: 746px;
+  flex-shrink: 0;
+  border-right: solid black 7px;
+}
+
+.home__desktop-col-right {
+}
+
+.home__desktop .home__header {
+  border-bottom: solid black 7px;
+}
+
+.home__desktop-below-header {
+  display: flex;
+  height: 100%;
+}
+
+.home__desktop-below-header-col-left {
+  flex-shrink: 0;
+  width: 344px;
+  border-right: solid black 7px;
 }
 

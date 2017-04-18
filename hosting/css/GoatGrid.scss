@@ -2,10 +2,18 @@
 
 .goat-grid {
   padding: 30px 25px 25px 25px;
+
+  @media (min-width: 1216px) {
+    padding: 60px 35px 35px 35px;
+  }
 }
 
 .goat-grid__header {
   margin-bottom: 35px;
+
+  @media (min-width: 1216px) {
+    margin-bottom: 55px;
+  }
 }
 
 .goat-grid__header-heading {
@@ -24,6 +32,11 @@
   @media (min-width: 375px) {
     font-size: 76px;
   }
+
+  @media (min-width: 1216px) {
+    font-size: 116px;
+    margin-bottom: 13px;
+  }
 }
 
 .goat-grid__header-subtitle {
@@ -32,6 +45,10 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    font-size: 17px;
+  }
 }
 
 .goat-grid__grid {

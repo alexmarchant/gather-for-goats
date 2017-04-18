@@ -3,17 +3,21 @@ require('../../css/About.scss');
 import * as React from 'react';
 
 export interface AboutProps {
-  handleClose: () => void;
+  handleClose?: () => void;
 }
 
 export default class About extends React.Component<AboutProps, any> {
   render() {
     return (
       <div className="about">
-        <button
-          className="home__nav-section-close"
-          onClick={this.props.handleClose}
-        />
+        {
+          this.props.handleClose ?
+          <button
+            className="home__nav-section-close"
+            onClick={this.props.handleClose}
+          /> :
+          null
+        }
         <h4>The Goal</h4>
         <p>
           Buy 800 goats for Syrian refugee families living in the Jordan desert to provide a sustainable source of nutrition and hydration for children in this uninhabited area.

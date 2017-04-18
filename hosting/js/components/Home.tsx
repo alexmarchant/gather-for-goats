@@ -29,9 +29,27 @@ export default class Home extends React.Component<any, HomeState> {
   render() {
     return (
       <div className="home">
-        <Header />
-        <Nav />
-        <GoatGrid goatsPurchased={this.state.goatsPurchased} />
+        <div className="home__mobile">
+          <Header />
+          <Nav />
+          <GoatGrid goatsPurchased={this.state.goatsPurchased} />
+        </div>
+        <div className="home__desktop">
+          <div className="home__desktop-col-left">
+            <Header />
+            <div className="home__desktop-below-header">
+              <div className="home__desktop-below-header-col-left">
+                <Info />
+              </div>
+              <div className="home__desktop-below-header-col-right">
+                <About />
+              </div>
+            </div>
+          </div>
+          <div className="home__desktop-col-right">
+            <GoatGrid goatsPurchased={this.state.goatsPurchased} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -39,9 +57,9 @@ export default class Home extends React.Component<any, HomeState> {
 
 const Header = () => (
   <div className="home__header">
-    <h1>The Great Goat Gala</h1>
+    <h1>Gather for Goats</h1>
     <hr />
-    <h2>A Worldwide Fundraiser Event For Syrian Refugees</h2>
+    <h2>A Worldwide Benefit for Syrian Refugees</h2>
   </div>
 );
 
