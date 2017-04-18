@@ -48,6 +48,11 @@ export default class About extends React.Component<AboutProps, any> {
           Host a dinner party (or brunch, BBQ, etc); ask guests to donate what they would have spent going out to the goat fund. 
         </p>
 
+        <h4>Can't Host?</h4>
+        <p>
+					That's ok! You can still help pitch in money towards a goat, or help by spreading the word.
+        </p>
+
         <h4>Who?</h4>
         <p>
           Anyone who wants to help refugees—this project is for you. Adapt it to your budget, schedule, style. 
@@ -84,9 +89,9 @@ export default class About extends React.Component<AboutProps, any> {
           Pass <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan">this page</a> around on a phone or tablet after the meal (just like you would a check!) to capitalize on the momentum and save guests from having to remember and dig up the page later.
         </p>
 
-        <h4>#goatgala</h4>
+        <h4>#GATHERFORGOATS</h4>
         <p>
-          Share  plans, photos, and your portion of the story with friends and collaborators around the world using the hashtag #goatgala.
+          Share  plans, photos, and your portion of the story with friends and collaborators around the world using the hashtag #GATHERFORGOATS.
         </p>
 
         <h4 id="about__history">History</h4>
@@ -104,7 +109,7 @@ export default class About extends React.Component<AboutProps, any> {
 
         <h4>Why Goats?</h4>
         <p>
-          400 of the most vulnerable families (those with small children and babies) in this region will be give two female goats. These goats will produce daily milk which will provide critical vitamins and nutrition for the children. Families can also produce milk products for such as butter and cheese. Beyond caring for their own families, they will be able to sell some of the product for a small source of income. Goats are low-maintenance animals who are able to eat the wild vegetation in this area. The Bedouin culture is also familiar with using goat fur to create tents, which provides a waterproof, wind-resistant, portable structure for protection from the elements that allows much better ventilation. 
+          400 of the most vulnerable families (those with small children and babies) in this region will be given two female goats. These goats will produce daily milk which will provide critical vitamins and nutrition for the children. Families can also produce milk products such as butter and cheese. Beyond caring for their own families, they will be able to sell some of the product for a small source of income. Goats are low-maintenance animals who are able to eat the wild vegetation in this area. The Bedouin culture is also familiar with using goat fur to create tents, which provides a waterproof, wind-resistant, portable structure for protection from the elements that allows much better ventilation. 
         </p>
 
         <h4>Testimonial</h4>
