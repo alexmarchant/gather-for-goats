@@ -5,9 +5,11 @@ import firebase from '../scripts/firebase';
 import Info from './Info';
 import About from './About';
 import GoatGrid from './GoatGrid';
+import { Sponsor } from './Admin';
 
 interface HomeState {
   goatsPurchased?: number;
+  sponsors?: Array<Sponsor>;
 }
 
 export default class Home extends React.Component<any, HomeState> {
@@ -20,9 +22,14 @@ export default class Home extends React.Component<any, HomeState> {
   }
 
   componentDidMount() {
-    firebase.database().ref('goatsPurchased').on('value', (snapshot) => {
-      const goatsPurchased = snapshot.val();
-      this.setState({goatsPurchased: goatsPurchased});
+    firebase.database().ref('/').on('value', (snapshot) => {
+      const result = snapshot.val();
+      const goatsPurchased = result.goatsPurchased;
+      const sponsors = JSON.parse(result.sponsors);
+      this.setState({
+        goatsPurchased: goatsPurchased,
+        sponsors: sponsors,
+      });
     });
   }
 
@@ -31,7 +38,7 @@ export default class Home extends React.Component<any, HomeState> {
       <div className="home">
         <div className="home__mobile">
           <Header />
-          <Nav />
+          <Nav sponsors={this.state.sponsors} />
           <GoatGrid goatsPurchased={this.state.goatsPurchased} />
         </div>
         <div className="home__desktop">
@@ -39,7 +46,7 @@ export default class Home extends React.Component<any, HomeState> {
             <Header />
             <div className="home__desktop-below-header">
               <div className="home__desktop-below-header-col-left">
-                <Info />
+                <Info sponsors={this.state.sponsors} />
               </div>
               <div className="home__desktop-below-header-col-right">
                 <About />
@@ -69,11 +76,15 @@ export enum NavSection {
   About
 }
 
+interface NavProps {
+  sponsors?: Array<Sponsor>;
+}
+
 interface NavState {
   activeSection: NavSection;
 }
 
-class Nav extends React.Component<any, NavState> {
+class Nav extends React.Component<NavProps, NavState> {
   constructor(props: any) {
     super(props);
 
@@ -105,7 +116,13 @@ class Nav extends React.Component<any, NavState> {
 
   infoContent() {
     if (this.state.activeSection === NavSection.Info) {
-      return <Info handleClose={this.handleClose} openNavSection={this.openNavSection} />
+      return (
+        <Info
+          handleClose={this.handleClose}
+          openNavSection={this.openNavSection}
+          sponsors={this.props.sponsors}
+        />
+      );
     } else {
       return (
         <button

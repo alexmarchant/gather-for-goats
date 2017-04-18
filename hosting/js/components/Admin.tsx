@@ -2,6 +2,7 @@ require('../../css/Admin.scss');
 require('../../node_modules/firebaseui/dist/firebaseui.css');
 
 import * as React from 'react';
+import * as _ from 'lodash';
 import firebase from '../scripts/firebase';
 import Auth from './Auth';
 
@@ -67,8 +68,14 @@ export default class Admin extends React.Component<any, AdminState> {
   }
 }
 
+export interface Sponsor {
+  name: string;
+  url: string;
+}
+
 interface LoggedInContentState {
   goatsPurchased?: number;
+  sponsors?: Array<Sponsor>;
   submitting: boolean;
   submitted: boolean;
 }
@@ -79,12 +86,16 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
 
     this.state = {
       goatsPurchased: null,
+      sponsors: null,
       submitting: false,
       submitted: false,
     };
 
 		this.handleLogOutClick = this.handleLogOutClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddSponsorClick = this.handleAddSponsorClick.bind(this);
+    this.handleSponsorNameChange = this.handleSponsorNameChange.bind(this);
+    this.handleSponsorURLChange = this.handleSponsorURLChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
@@ -92,8 +103,10 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
     firebase.database().ref('/').on('value', (snapshot) => {
       const result = snapshot.val();
       const goatsPurchased = result.goatsPurchased;
+      const sponsors = JSON.parse(result.sponsors);
       this.setState({
         goatsPurchased: goatsPurchased,
+        sponsors: sponsors,
       });
     });
   }
@@ -114,6 +127,48 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
     });
   }
 
+  handleAddSponsorClick(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+
+    const sponsors = this.state.sponsors;
+    sponsors.push({name: "", url: ""});
+    this.setState({
+      submitted: false,
+      sponsors: sponsors,
+    });
+  }
+
+  removeSponsor(index: number) {
+    const sponsors = this.state.sponsors;
+    sponsors.splice(index, 1);
+    this.setState({
+      submitted: false,
+      sponsors: sponsors,
+    });
+  }
+
+  handleSponsorNameChange(event: React.FormEvent<HTMLInputElement>) {
+    const index = parseInt(event.currentTarget.name);
+    const name = event.currentTarget.value;
+    const sponsors = this.state.sponsors;
+    sponsors[index]['name'] = name;
+    this.setState({
+      submitted: false,
+      sponsors: sponsors,
+    });
+  }
+
+  handleSponsorURLChange(event: React.FormEvent<HTMLInputElement>) {
+    const index = parseInt(event.currentTarget.name);
+    const url = event.currentTarget.value;
+    const sponsors = this.state.sponsors;
+    sponsors[index]['url'] = url;
+    this.setState({
+      submitted: false,
+      sponsors: sponsors,
+    });
+  }
+
   handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -121,6 +176,7 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
 
     const updates = {
       goatsPurchased: this.state.goatsPurchased,
+      sponsors: JSON.stringify(this.state.sponsors),
     };
 
     firebase.database().ref().update(updates).then(() => {
@@ -131,13 +187,14 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
       });
     }, (err) => {
       console.error(`Error... ${err}`);
-      alert('Sorry, something went wrong :( Email me (alex)')
+      alert('Sorry, something went wrong :( Email me')
       this.setState({submitting: false});
     });
   }
 
   render() {
     let submitValue = "Save";
+
     if (this.state.submitting) {
       submitValue = "Saving..."
     } else if (this.state.submitted) {
@@ -159,6 +216,40 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
               value={this.state.goatsPurchased}
               onChange={this.handleInputChange}
             />
+            <h3>Sponsors</h3>
+
+            {_.map(this.state.sponsors, (sponsor, index) => (
+              <div className="admin__sponsor" key={index}>
+                <div className="admin__sponsor-field-group">
+                  <label>Name:</label>
+                  <input
+                    type="text"
+                    value={sponsor.name}
+                    name={`${index}`}
+                    onChange={this.handleSponsorNameChange}
+                  />
+                </div>
+                <div className="admin__sponsor-field-group">
+                  <label>URL:</label>
+                  <input
+                    type="url"
+                    value={sponsor.url}
+                    name={`${index}`}
+                    onChange={this.handleSponsorURLChange}
+                  />
+                </div>
+                <button onClick={() => { this.removeSponsor(index); }}>
+                  Remove Sponsor
+                </button>
+              </div>
+            ))}
+
+            <p>
+              <button onClick={this.handleAddSponsorClick}>
+                Add Sponsor
+              </button>
+            </p>
+
             <input
               type="submit"
               value={submitValue}
@@ -169,3 +260,4 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
     );
   }
 };
+

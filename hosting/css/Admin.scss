@@ -11,7 +11,8 @@
 }
 
 .admin input[type="text"],
-.admin input[type="number"] {
+.admin input[type="url"],
+.admin input[type="number"], {
   width: 100%;
   font-size: 18px;
   padding: 2px 5px;
@@ -21,4 +22,14 @@
 .admin input[type="submit"] {
   margin-top: 15px;
   font-size: 18px;
+}
+
+.admin__sponsor {
+  border: solid black 1px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.admin__sponsor label {
+  display: block;
 }

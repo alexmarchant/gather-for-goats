@@ -1,8 +1,10 @@
 require('../../css/Info.scss');
 
 import * as React from 'react';
+import * as _ from 'lodash';
 import { NavSection } from './Home';
 import { scrollToAboutHistory } from '../scripts/scrollTo';
+import { Sponsor } from './Admin';
 
 const buyAGoatStar = require('../../images/buy-a-goat-star.svg');
 const gift = require('../../images/gift.svg');
@@ -11,6 +13,7 @@ const goatx10 = require('../../images/goatx10.svg');
 export interface InfoProps {
   handleClose?: () => void;
   openNavSection?: (navSection: NavSection) => void;
+  sponsors?: Array<Sponsor>;
 }
 
 export default class Info extends React.Component<InfoProps, any> {
@@ -31,6 +34,18 @@ export default class Info extends React.Component<InfoProps, any> {
   }
 
   render() {
+    let sponsors;
+
+    if (this.props.sponsors) {
+      sponsors = _.map(this.props.sponsors, (sponsor, index) => (
+        <li key={index}>
+          <a href={sponsor.url} className="info__block-link">{sponsor.name}</a>
+        </li>
+      ));
+    } else {
+      sponsors = <li>Loading...</li>;
+    }
+
     return (
       <div className="info">
         {
@@ -93,15 +108,7 @@ export default class Info extends React.Component<InfoProps, any> {
             Thank you so much to all our generous sponsors and co-hosts:
           </p>
           <ul>
-            <li>
-              <a href="" className="info__block-link">Cup of Jo</a>
-            </li>
-            <li>
-              <a href="" className="info__block-link">Oh Happy Day</a>
-            </li>
-            <li>
-              <a href="" className="info__block-link">Kelsey Nixon</a>
-            </li>
+            {sponsors}
           </ul>
         </div>
         <hr className="info__section-rule" />
