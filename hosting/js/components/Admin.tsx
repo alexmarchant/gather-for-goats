@@ -67,14 +67,10 @@ export default class Admin extends React.Component<any, AdminState> {
   }
 }
 
-interface Sponsor {
-  name: string;
-  url: string;
-}
-
 interface LoggedInContentState {
   goatsPurchased?: number;
-  sponsors?: Array<Sponsor>;
+  submitting: boolean;
+  submitted: boolean;
 }
 
 class LoggedInContent extends React.Component<any, LoggedInContentState> {
@@ -83,10 +79,12 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
 
     this.state = {
       goatsPurchased: null,
-      sponsors: null,
+      submitting: false,
+      submitted: false,
     };
 
 		this.handleLogOutClick = this.handleLogOutClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
@@ -94,10 +92,8 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
     firebase.database().ref('/').on('value', (snapshot) => {
       const result = snapshot.val();
       const goatsPurchased = result.goatsPurchased;
-      const sponsors = JSON.parse(result.sponsors);
       this.setState({
         goatsPurchased: goatsPurchased,
-        sponsors: sponsors,
       });
     });
   }
@@ -109,23 +105,64 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
     });
   }
 
-  handleFormSubmit() {
+  handleInputChange(event: React.FormEvent<HTMLInputElement>) {
+    const key = event.currentTarget.name;
+    const value = parseInt(event.currentTarget.value);
+    this.setState({
+      submitted: false,
+      [key as any]: value,
+    });
+  }
+
+  handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    this.setState({submitting: true});
+
+    const updates = {
+      goatsPurchased: this.state.goatsPurchased,
+    };
+
+    firebase.database().ref().update(updates).then(() => {
+      console.log('Updated...');
+      this.setState({
+        submitting: false,
+        submitted: true,
+      });
+    }, (err) => {
+      console.error(`Error... ${err}`);
+      alert('Sorry, something went wrong :( Email me (alex)')
+      this.setState({submitting: false});
+    });
   }
 
   render() {
+    let submitValue = "Save";
+    if (this.state.submitting) {
+      submitValue = "Saving..."
+    } else if (this.state.submitted) {
+      submitValue = "Saved!"
+    }
+
     return (
       <div>
         <button onClick={this.handleLogOutClick}>Log Out</button>
         {
-          (this.state.goatsPurchased === null || this.state.sponsors === null) ?
+          (this.state.goatsPurchased === null) ?
           <div>Loading...</div> :
           <form onSubmit={this.handleFormSubmit}>
             <h2>Update Data:</h2>
             <h3>Goats Purchased</h3>
-            <input type="number" value={this.state.goatsPurchased} />
-            <h3>Sponsors</h3>
-            <input type="text" value={this.state.goatsPurchased} />
-            <input type="submit" value="Submit" />
+            <input
+              type="number"
+              name="goatsPurchased"
+              value={this.state.goatsPurchased}
+              onChange={this.handleInputChange}
+            />
+            <input
+              type="submit"
+              value={submitValue}
+            />
           </form>
         }
       </div>

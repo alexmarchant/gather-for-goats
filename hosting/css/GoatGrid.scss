@@ -16,10 +16,14 @@
 .goat-grid__header-purchased-count {
   @extend .goat-grid__header-heading;
   font-family: $brandon-ff;
-  font-size: 76px;
+  font-size: 68px;
   font-weight: 800;
   color: $red;
   margin-bottom: 7px;
+
+  @media (min-width: 375px) {
+    font-size: 76px;
+  }
 }
 
 .goat-grid__header-subtitle {
