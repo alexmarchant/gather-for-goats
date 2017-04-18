@@ -162,7 +162,7 @@ class Nav extends React.Component<NavProps, NavState> {
         <div className="home__nav-buy">
           <a
             className="home__nav-button"
-            href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan"
+            href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1"
           >
             Buy a Goat
           </a>

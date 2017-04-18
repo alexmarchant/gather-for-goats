@@ -100,7 +100,7 @@ export default class Info extends React.Component<InfoProps, any> {
           <p>
             A group of goats is called a trap! Would your business or group like to sponsor a trap of at least 10 goats and be listed in our official sponsor section?
           </p>
-          <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan" className="arrow-link">Sponsor a Trap</a>
+          <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1" className="arrow-link">Sponsor a Trap</a>
         </div>
         <hr className="info__section-rule" />
         <div className="info__section">

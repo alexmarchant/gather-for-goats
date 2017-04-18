@@ -86,7 +86,7 @@ export default class About extends React.Component<AboutProps, any> {
 
         <h4>Collection</h4>
         <p>
-          Pass <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan">this page</a> around on a phone or tablet after the meal (just like you would a check!) to capitalize on the momentum and save guests from having to remember and dig up the page later.
+          Pass <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1">this page</a> around on a phone or tablet after the meal (just like you would a check!) to capitalize on the momentum and save guests from having to remember and dig up the page later.
         </p>
 
         <h4>#GATHERFORGOATS</h4>
