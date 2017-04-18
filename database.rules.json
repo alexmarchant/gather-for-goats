@@ -1,6 +1,6 @@
 {
   "rules": {
     ".read": true,
-    ".write": "auth != null && auth.uid == 'P68Eb4QLwiOOUE4LmlPi1MWbcno1'"
+    ".write": "auth != null && (auth.uid == 'P68Eb4QLwiOOUE4LmlPi1MWbcno1' || auth.uid =='dgViwzRDyZWtkwjraFqbPvDM5AD3' || auth.uid == 'vpe4IwwUllb5YBGtAPqI6DhqAoQ2')"
   }
 }

@@ -44,7 +44,7 @@ export default class Admin extends React.Component<any, AdminState> {
       case LoggedInState.Loading:
         return <div>Loading...</div>;
       case LoggedInState.LoggedIn:
-        return <div>Do Stuff</div>;
+        return <LoggedInContent />;
       case LoggedInState.NotLoggedIn:
         return <Auth />;
       default:
@@ -64,3 +64,6 @@ export default class Admin extends React.Component<any, AdminState> {
   }
 }
 
+const LoggedInContent = () => (
+  <div />
+);

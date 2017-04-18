@@ -40,7 +40,7 @@ class Nav extends React.Component<any, NavState> {
     super(props);
 
     this.state = {
-      activeSection: NavSection.About,
+      activeSection: NavSection.None,
     };
 
     this.handleInfoClick = this.handleInfoClick.bind(this);

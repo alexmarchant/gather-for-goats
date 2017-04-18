@@ -37,6 +37,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config build/webpack.config.js --progress --colors",
-    "build": "webpack -p --config build/webpack.config.production.js"
+    "build": "webpack -p --config build/webpack.config.production.js",
+    "deploy": "cd .. && firebase deploy"
   }
 }
