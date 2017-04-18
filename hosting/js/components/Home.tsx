@@ -63,7 +63,7 @@ const Header = () => (
   </div>
 );
 
-enum NavSection {
+export enum NavSection {
   None,
   Info,
   About
@@ -84,6 +84,7 @@ class Nav extends React.Component<any, NavState> {
     this.handleInfoClick = this.handleInfoClick.bind(this);
     this.handleAboutClick = this.handleAboutClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.openNavSection = this.openNavSection.bind(this);
   }
 
   handleInfoClick() {
@@ -98,9 +99,13 @@ class Nav extends React.Component<any, NavState> {
     this.setState({activeSection: NavSection.None});
   }
 
+  openNavSection(navSection: NavSection) {
+    this.setState({activeSection: navSection});
+  }
+
   infoContent() {
     if (this.state.activeSection === NavSection.Info) {
-      return <Info handleClose={this.handleClose} />
+      return <Info handleClose={this.handleClose} openNavSection={this.openNavSection} />
     } else {
       return (
         <button
@@ -140,7 +145,7 @@ class Nav extends React.Component<any, NavState> {
         <div className="home__nav-buy">
           <a
             className="home__nav-button"
-            href=""
+            href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan"
           >
             Buy a Goat
           </a>
