@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="164px" height="164px" viewBox="0 0 164 164" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 13</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Goat-Project-Home" transform="translate(-137.000000, -509.000000)">
+            <g id="Group-13" transform="translate(137.000000, 509.000000)">
+                <polygon id="Star-Button" fill="#F0543A" points="98.3095673 -5.68434189e-14 81.9989078 15.1158113 65.6882484 -5.68434189e-14 56.4046937 20.207568 35.5483691 12.4836506 34.7030195 34.7073882 12.4836506 35.5527378 20.2053837 56.4046937 1.13686838e-13 65.6904327 15.113627 82.0010922 1.13686838e-13 98.3095673 20.2053837 107.595306 12.4836506 128.449447 34.7030195 129.294796 35.5483691 151.516349 56.4046937 143.794616 65.6882484 164 81.9989078 148.886373 98.3095673 164 107.595306 143.794616 128.447262 151.516349 129.292612 129.294796 151.516349 128.449447 143.792432 107.595306 164 98.3095673 148.882004 82.0010922 164 65.6904327 143.792432 56.4046937 151.516349 35.5527378 129.292612 34.7073882 128.447262 12.4836506 107.595306 20.207568"></polygon>
+                <text id="BUY-A-GOAT" font-family="ProximaNova-Bold, Proxima Nova" font-size="17" font-weight="bold" letter-spacing="3.05999994" fill="#FFFFFF">
+                    <tspan x="60.1040001" y="66">BUY</tspan>
+                    <tspan x="74.656" y="86">A</tspan>
+                    <tspan x="53.3295001" y="106">GOAT</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

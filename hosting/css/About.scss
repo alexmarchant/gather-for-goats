@@ -1,0 +1,20 @@
+@import './variables.scss';
+
+.about {
+  margin: 50px 25px;
+  position: relative;
+}
+
+.about h4 {
+  color: $red;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-top: 25px;
+  margin-bottom: -6px;
+}
+
+.about ul {
+  padding-left: 16px;
+}

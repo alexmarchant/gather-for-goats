@@ -39,17 +39,7 @@
   border-top: solid black 7px;
 }
 
-.home__nav ul {
-  margin: 0;
-  padding: 0;
-}
-
-.home__nav li {
-  border-bottom: solid black 7px;
-}
-
-.home__nav li,
-.home__nav li a {
+.home__nav-button {
   color: white;
   font-size: 17px;
   font-weight: 700;
@@ -62,17 +52,38 @@
   line-height: 80px;
   text-decoration: none;
   cursor: pointer;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.home__nav-info {
+.home__nav-section {
+  border-bottom: solid black 7px;
+}
+
+.home__nav-info,
+.home__nav-about,
+.home__nav-buy {
+  @extend .home__nav-section;
+}
+
+.home__nav-info .home__nav-button {
   background-color: $pink;
 }
 
-.home__nav-about {
+.home__nav-about .home__nav-button {
   background-color: $yellow;
 }
 
-.home__nav-buy {
+.home__nav-buy .home__nav-button {
   background-color: $red;
+}
+
+.home__nav-section-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
 }
 

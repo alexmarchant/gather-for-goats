@@ -1,13 +1,24 @@
+require('../../css/About.scss');
+
 import * as React from 'react';
 
-export default class About extends React.Component<any, any> {
+export interface AboutProps {
+  handleClose: () => void;
+}
+
+export default class About extends React.Component<AboutProps, any> {
   render() {
     return (
       <div className="about">
+        <button
+          className="home__nav-section-close"
+          onClick={this.props.handleClose}
+        />
         <h4>The Goal</h4>
         <p>
           Buy 800 goats for Syrian refugee families living in the Jordan desert to provide a sustainable source of nutrition and hydration for children in this uninhabited area.
-          <a href="">More details</a>
+          &nbsp;
+          <a href="" className="arrow-link">More details</a>
         </p>
 
         <h4>The Plan</h4>
@@ -65,7 +76,7 @@ export default class About extends React.Component<any, any> {
         </p>
         <p>
           Many of the Syrian refugees in Almafraq area are from a Bedouin background—their livelihood, which they lost when they ran for their lives, was caring for cattle, sheep and goats. 
-          <a href="">See Photos</a>
+          <a href="" className="arrow-link">See Photos</a>
         </p>
 
         <h4>Why Goats?</h4>

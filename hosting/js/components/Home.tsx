@@ -40,11 +40,12 @@ class Nav extends React.Component<any, NavState> {
     super(props);
 
     this.state = {
-      activeSection: NavSection.None,
+      activeSection: NavSection.About,
     };
 
     this.handleInfoClick = this.handleInfoClick.bind(this);
     this.handleAboutClick = this.handleAboutClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleInfoClick() {
@@ -55,27 +56,58 @@ class Nav extends React.Component<any, NavState> {
     this.setState({activeSection: NavSection.About});
   }
 
+  handleClose() {
+    this.setState({activeSection: NavSection.None});
+  }
+
+  infoContent() {
+    if (this.state.activeSection === NavSection.Info) {
+      return <Info handleClose={this.handleClose} />
+    } else {
+      return (
+        <button
+          className="home__nav-button"
+          onClick={this.handleInfoClick}
+        >
+          Navigation + Info
+        </button>
+      );
+    }
+  }
+
+  aboutContent() {
+    if (this.state.activeSection === NavSection.About) {
+      return <About handleClose={this.handleClose} />
+    } else {
+      return (
+        <button
+          className="home__nav-button"
+          onClick={this.handleAboutClick}
+        >
+          About the Project
+        </button>
+      );
+    }
+  }
+
   render() {
     return (
-      <div className="home__nav">
-        <ul>
-          <li
-            className="home__nav-info"
-            onClick={this.handleInfoClick}
+      <nav className="home__nav">
+        <div className="home__nav-info">
+          {this.infoContent()}
+        </div>
+        <div className="home__nav-about">
+          {this.aboutContent()}
+        </div>
+        <div className="home__nav-buy">
+          <a
+            className="home__nav-button"
+            href=""
           >
-            Navigation + Info
-          </li>
-          <li
-            className="home__nav-about"
-            onClick={this.handleAboutClick}
-          >
-            About the Project
-          </li>
-          <li className="home__nav-buy">
-            <a href="">Buy a Goat</a>
-          </li>
-        </ul>
-      </div>
+            Buy a Goat
+          </a>
+        </div>
+      </nav>
     );
   }
 }
