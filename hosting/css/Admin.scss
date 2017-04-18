@@ -1,3 +1,24 @@
 .admin {
   margin: 50px 25px;
 }
+
+.admin h1 {
+  margin-bottom: 5px;
+}
+
+.admin h3 {
+  margin-bottom: 5px;
+}
+
+.admin input[type="text"],
+.admin input[type="number"] {
+  width: 100%;
+  font-size: 18px;
+  padding: 2px 5px;
+  margin-bottom: 5px;
+}
+
+.admin input[type="submit"] {
+  margin-top: 15px;
+  font-size: 18px;
+}

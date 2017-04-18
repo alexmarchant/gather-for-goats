@@ -1,17 +1,37 @@
 require('../../css/Home.scss');
 
 import * as React from 'react';
+import firebase from '../scripts/firebase';
 import Info from './Info';
 import About from './About';
 import GoatGrid from './GoatGrid';
 
-export default class Home extends React.Component<any, any> {
+interface HomeState {
+  goatsPurchased?: number;
+}
+
+export default class Home extends React.Component<any, HomeState> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      goatsPurchased: null,
+    };
+  }
+
+  componentDidMount() {
+    firebase.database().ref('goatsPurchased').on('value', (snapshot) => {
+      const goatsPurchased = snapshot.val();
+      this.setState({goatsPurchased: goatsPurchased});
+    });
+  }
+
   render() {
     return (
       <div className="home">
         <Header />
         <Nav />
-        <GoatGrid purchasedGoats={10} />
+        <GoatGrid goatsPurchased={this.state.goatsPurchased} />
       </div>
     );
   }

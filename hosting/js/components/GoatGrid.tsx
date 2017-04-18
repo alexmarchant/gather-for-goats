@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 const goatGraphic = require('../../images/goat.svg');
 
 export interface GoatGridProps {
-  purchasedGoats: number;
+  goatsPurchased?: number;
 }
 
 export default class GoatGrid extends React.Component<GoatGridProps, any> {
@@ -17,22 +17,38 @@ export default class GoatGrid extends React.Component<GoatGridProps, any> {
     this.goatCount = 800;
   }
 
+  content() {
+    if (this.props.goatsPurchased === null) {
+      return (
+        <div className="goat-grid__header">
+          <h3 className="goat-grid__header-subtitle">Loading...</h3>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div className="goat-grid__header">
+            <h3 className="goat-grid__header-purchased-count">{this.props.goatsPurchased}/800</h3>
+            <h3 className="goat-grid__header-subtitle">Goats Purchased</h3>
+          </div>
+          <div className="goat-grid__grid">
+            {_.map(_.range(this.goatCount), (index) => (
+              <Goat
+                purchased={index < this.props.goatsPurchased}
+                index={index}
+                key={index}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="goat-grid">
-        <div className="goat-grid__header">
-          <h3 className="goat-grid__header-purchased-count">{this.props.purchasedGoats}/800</h3>
-          <h3 className="goat-grid__header-subtitle">Goats Purchased</h3>
-        </div>
-        <div className="goat-grid__grid">
-          {_.map(_.range(this.goatCount), (index) => (
-            <Goat
-              purchased={index < this.props.purchasedGoats}
-              index={index}
-              key={index}
-            />
-          ))}
-        </div>
+        {this.content()}
       </div>
     );
   }

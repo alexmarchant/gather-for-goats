@@ -34,7 +34,10 @@ export default class Admin extends React.Component<any, AdminState> {
           currentUser: user,
         })
       } else {
-        this.setState({loggedInState: LoggedInState.NotLoggedIn})
+        this.setState({
+          loggedInState: LoggedInState.NotLoggedIn,
+          currentUser: null,
+        })
       }
     });
   }
@@ -64,6 +67,68 @@ export default class Admin extends React.Component<any, AdminState> {
   }
 }
 
-const LoggedInContent = () => (
-  <div />
-);
+interface Sponsor {
+  name: string;
+  url: string;
+}
+
+interface LoggedInContentState {
+  goatsPurchased?: number;
+  sponsors?: Array<Sponsor>;
+}
+
+class LoggedInContent extends React.Component<any, LoggedInContentState> {
+	constructor(props: any) {
+		super(props);
+
+    this.state = {
+      goatsPurchased: null,
+      sponsors: null,
+    };
+
+		this.handleLogOutClick = this.handleLogOutClick.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+	}
+
+  componentDidMount() {
+    firebase.database().ref('/').on('value', (snapshot) => {
+      const result = snapshot.val();
+      const goatsPurchased = result.goatsPurchased;
+      const sponsors = JSON.parse(result.sponsors);
+      this.setState({
+        goatsPurchased: goatsPurchased,
+        sponsors: sponsors,
+      });
+    });
+  }
+
+  handleLogOutClick() {
+		firebase.auth().signOut().then(() => {}, (error) => {
+      console.error(error);
+      alert('Error :(');
+    });
+  }
+
+  handleFormSubmit() {
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleLogOutClick}>Log Out</button>
+        {
+          (this.state.goatsPurchased === null || this.state.sponsors === null) ?
+          <div>Loading...</div> :
+          <form onSubmit={this.handleFormSubmit}>
+            <h2>Update Data:</h2>
+            <h3>Goats Purchased</h3>
+            <input type="number" value={this.state.goatsPurchased} />
+            <h3>Sponsors</h3>
+            <input type="text" value={this.state.goatsPurchased} />
+            <input type="submit" value="Submit" />
+          </form>
+        }
+      </div>
+    );
+  }
+};
