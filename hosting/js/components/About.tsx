@@ -50,7 +50,7 @@ export default class About extends React.Component<AboutProps, any> {
 
         <h4>Can't Host?</h4>
         <p>
-          That's ok! You can still <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1" target="_blank">contribute money towards a goat</a>, or help by spreading the word.
+          That's ok! You can still <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1" className="buy-button" target="_blank">contribute money towards a goat</a>, or help by spreading the word.
         </p>
 
         <h4>Who?</h4>
@@ -86,7 +86,7 @@ export default class About extends React.Component<AboutProps, any> {
 
         <h4>Collection</h4>
         <p>
-          Pass <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1" target="_blank">this page</a> around on a phone or tablet after the meal (just like you would a check!) to capitalize on the momentum and save guests from having to remember and dig up the page later.
+          Pass <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1" className="buy-button" target="_blank">this page</a> around on a phone or tablet after the meal (just like you would a check!) to capitalize on the momentum and save guests from having to remember and dig up the page later.
         </p>
 
         <h4>#GATHERFORGOATS</h4>

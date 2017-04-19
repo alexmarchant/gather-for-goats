@@ -58,14 +58,14 @@ export default class Info extends React.Component<InfoProps, any> {
         }
         <div className="info__section">
           <p><strong>
-              A collaborative project for <a href="http://www.liftinghandsinternational.org/" target="_blank">Lifting Hands International</a>, a registered non-profit we carefully selected for their passionate dedication and impeccable efficiency!
+            A collaborative project for <a href="http://www.liftinghandsinternational.org/" target="_blank">Lifting Hands International</a>, a registered non-profit we carefully selected for their passionate dedication and impeccable efficiency!
           </strong></p>
         </div>
         <hr className="info__section-rule" />
         <div className="info__section">
           <a
             href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1"
-            className="info__block-link info__star-button"
+            className="info__block-link info__star-button buy-button"
             target="_blank"
           >
             <img src={buyAGoatStar} />
@@ -136,7 +136,7 @@ export default class Info extends React.Component<InfoProps, any> {
           </p>
           <a
             href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1"
-            className="arrow-link"
+            className="arrow-link buy-button"
             target="_blank"
           >
             Sponsor a Trap

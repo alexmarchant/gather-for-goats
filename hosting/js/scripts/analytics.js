@@ -16,5 +16,11 @@ if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
     r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
     a.appendChild(r);
   })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+
+  $(document).ready(() => {
+    $('.buy-button').click(() => {
+      ga('send', 'event', 'BuyButton', 'click');
+    });
+  });
 }
 

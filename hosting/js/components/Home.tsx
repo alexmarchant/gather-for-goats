@@ -161,8 +161,9 @@ class Nav extends React.Component<NavProps, NavState> {
         </div>
         <div className="home__nav-buy">
           <a
-            className="home__nav-button"
+            className="home__nav-button buy-button"
             href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1"
+            target="_blank"
           >
             Buy a Goat
           </a>
