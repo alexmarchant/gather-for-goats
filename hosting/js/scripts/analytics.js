@@ -23,6 +23,10 @@ if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
     $('.buy-button').click(() => {
       ga('send', 'event', 'buy-button', 'click');
     });
+
+    $('.download-button').click(() => {
+      ga('send', 'event', 'download-button', 'click');
+    });
   });
 }
 

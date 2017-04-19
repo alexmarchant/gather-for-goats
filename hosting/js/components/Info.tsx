@@ -125,7 +125,29 @@ export default class Info extends React.Component<InfoProps, any> {
             <br/>
             Download an official Goat Sponsor Certificate— the perfect gift!
           </p>
-          <a href="" className="arrow-link">Download</a>
+          <div className="info__download-buttons">
+            <a
+              href="https://firebasestorage.googleapis.com/v0/b/great-goat-gala.appspot.com/o/CERTIFICATE.pdf?alt=media&token=b3051444-8c96-4153-8a11-402fcdd97c73"
+              className="arrow-link download-button"
+              download
+            >
+              8.5x11 Certificate
+            </a>
+            <a
+              href="https://firebasestorage.googleapis.com/v0/b/great-goat-gala.appspot.com/o/MOTHERSDAY.pdf?alt=media&token=819bcfb0-3164-46af-8e8c-01e12262f3b0"
+              className="arrow-link download-button"
+              download
+            >
+              5x4 Mother's Day Card
+            </a>
+            <a
+              href="https://firebasestorage.googleapis.com/v0/b/great-goat-gala.appspot.com/o/KID.pdf?alt=media&token=cdaf0dc4-4dbd-4165-ad3a-accea8ca629a"
+              className="arrow-link download-button"
+              download
+            >
+              4x5 Kid Card
+            </a>
+          </div>
         </div>
         <hr className="info__section-rule" />
         <div className="info__section">
