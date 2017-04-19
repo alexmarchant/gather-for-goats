@@ -39,7 +39,7 @@ export default class Info extends React.Component<InfoProps, any> {
     if (this.props.sponsors) {
       sponsors = _.map(this.props.sponsors, (sponsor, index) => (
         <li key={index}>
-          <a href={sponsor.url} className="info__block-link">{sponsor.name}</a>
+          <a href={sponsor.url} className="info__block-link" target="_blank">{sponsor.name}</a>
         </li>
       ));
     } else {
@@ -58,12 +58,16 @@ export default class Info extends React.Component<InfoProps, any> {
         }
         <div className="info__section">
           <p><strong>
-              A collaborative project for <a href="http://www.liftinghandsinternational.org/">Lifting Hands International</a>, a registered 501(c)(3) we carefully selected for their passionate dedication and impeccable efficiency!
+              A collaborative project for <a href="http://www.liftinghandsinternational.org/" target="_blank">Lifting Hands International</a>, a registered non-profit we carefully selected for their passionate dedication and impeccable efficiency!
           </strong></p>
         </div>
         <hr className="info__section-rule" />
         <div className="info__section">
-          <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1" className="info__block-link info__star-button">
+          <a
+            href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1"
+            className="info__block-link info__star-button"
+            target="_blank"
+          >
             <img src={buyAGoatStar} />
           </a>
           <a
@@ -73,14 +77,44 @@ export default class Info extends React.Component<InfoProps, any> {
           >
             Learn More
           </a>
-          <a href="http://www.liftinghandsinternational.org/contact/" className="info__block-link">Contact</a>
+          <a
+            href="http://www.liftinghandsinternational.org/contact/"
+            className="info__block-link"
+            target="_blank"
+          >
+            Contact
+          </a>
         </div>
         <hr className="info__section-rule" />
         <div className="info__section">
-          <a href="https://twitter.com/LiftingHandsINT" className="info__block-link">Twitter</a>
-          <a href="https://www.instagram.com/liftinghandsinternational/" className="info__block-link">Instagram</a>
-          <a href="" className="info__block-link">Facebook</a>
-          <a href="https://www.youtube.com/watch?v=YV0zBl6RUjc" className="info__block-link">YouTube</a>
+          <a
+            href="https://twitter.com/LiftingHandsINT"
+            className="info__block-link"
+            target="_blank"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://www.instagram.com/liftinghandsinternational/"
+            className="info__block-link"
+            target="_blank"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://www.facebook.com/events/209924056167843/"
+            className="info__block-link"
+            target="_blank"
+          >
+            Facebook
+          </a>
+          <a
+            href="https://www.youtube.com/watch?v=YV0zBl6RUjc"
+            className="info__block-link"
+            target="_blank"
+          >
+            YouTube
+          </a>
         </div>
         <hr className="info__section-rule" />
         <div className="info__section">
@@ -100,7 +134,13 @@ export default class Info extends React.Component<InfoProps, any> {
           <p>
             A group of goats is called a trap! Would your business or group like to sponsor a trap of at least 10 goats and be listed in our official sponsor section?
           </p>
-          <a href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1" className="arrow-link">Sponsor a Trap</a>
+          <a
+            href="https://donorbox.org/goats-for-syrian-bedouin-refugees-in-jordan-1"
+            className="arrow-link"
+            target="_blank"
+          >
+            Sponsor a Trap
+          </a>
         </div>
         <hr className="info__section-rule" />
         <div className="info__section">
@@ -114,7 +154,7 @@ export default class Info extends React.Component<InfoProps, any> {
         <hr className="info__section-rule" />
         <div className="info__section">
           <p>
-            Special thanks to <a href="http://www.alexmarchant.com">Alex Marchant</a> for bringing this project to life with his programming skills.
+            Special thanks to <a href="http://www.alexmarchant.com" target="_blank">Alex Marchant</a> for bringing this project to life with his programming skills.
           </p>
         </div>
       </div>

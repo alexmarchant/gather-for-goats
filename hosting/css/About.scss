@@ -3,6 +3,10 @@
 .about {
   margin: 50px 25px;
   position: relative;
+
+  @media (min-width: 1133px) {
+    margin: 35px 25px;
+  }
 }
 
 .about h4 {

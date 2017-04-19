@@ -1,5 +1,7 @@
 @import './variables.scss';
 
+$line-thickness: 9px;
+
 .home__mobile {
   display: block;
 
@@ -10,7 +12,7 @@
 
 .home__desktop {
   display: none;
-  border: solid black 7px;
+  border: solid black $line-thickness;
   margin: 40px;
 
   @media (min-width: 1133px) {
@@ -51,6 +53,10 @@
   border: 0;
   background-color: black;
   margin-bottom: 23px;
+
+  @media (min-width: 1133px) {
+    margin-top: 0px;
+  }
 }
 
 .home__header h2 {
@@ -69,7 +75,7 @@
 }
 
 .home__nav {
-  border-top: solid black 7px;
+  border-top: solid black $line-thickness;
 }
 
 .home__nav-button {
@@ -91,7 +97,7 @@
 }
 
 .home__nav-section {
-  border-bottom: solid black 7px;
+  border-bottom: solid black $line-thickness;
 }
 
 .home__nav-info,
@@ -130,7 +136,7 @@
 .home__desktop-col-left {
   width: 688px;
   flex-shrink: 0;
-  border-right: solid black 7px;
+  border-right: solid black $line-thickness;
   display: flex;
   flex-direction: column;
 
@@ -144,7 +150,7 @@
 }
 
 .home__desktop .home__header {
-  border-bottom: solid black 7px;
+  border-bottom: solid black $line-thickness;
 }
 
 .home__desktop-below-header {
@@ -154,7 +160,7 @@
 .home__desktop-below-header-col-left {
   flex-shrink: 0;
   width: 344px;
-  border-right: solid black 7px;
+  border-right: solid black $line-thickness;
   overflow-y: scroll;
 }
 
