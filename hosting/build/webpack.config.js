@@ -49,7 +49,6 @@ module.exports = {
     template: path.resolve(__dirname, '..', 'html', 'index.ejs'),
   })],
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
   devtool: 'cheap-module-eval-source-map',
