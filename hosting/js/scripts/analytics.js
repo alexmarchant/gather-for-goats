@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
   // Google
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
