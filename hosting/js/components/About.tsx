@@ -99,7 +99,7 @@ export default class About extends React.Component<AboutProps, any> {
           The families we are hoping to help with this project are from the Idlib region of Syria, which is the region most recently <a href="https://www.nytimes.com/2017/04/04/world/middleeast/syria-gas-attack.html?smid=fb-nytimes&smtyp=cur&_r=0" target="_blank">attacked with chemical weapons</a>. They have been subjected to countless atrocities for the last six years, and a large group of families from that region have congregated in an area called Almafraq-Jordan, which hosts more than 100,000 Syrian refugees, most of them are living in random, unofficial campsites on farmers' private land. (It is very expensive for a refugee to be smuggled into Greece or other parts of Europe, and people without the means to pay to get further have stopped just beyond the border.)
         </p>
         <p>
-          There is no official government or humanitarian presence in these camps, which means the situation is even more dire than camps in other parts of the world. Children are suffering from malnutrition, dehydration, and illnesses left untreated because there is little to no access to medical care. There is no stable food supply, nor transportation to local markets in order to purchase food. Families are sleeping in tents made of cheap tarps buried in dirt in attempt to protect from rain, snakes, and scorpions—not only are these makeshift tents ineffective at keeping these out, they also excruciatingly hot. 
+          There is no official government or humanitarian presence in these camps, which means the situation is even more dire than camps in other parts of the world. Children are suffering from malnutrition, dehydration, and illnesses left untreated because there is little to no access to medical care. There is no stable food supply, nor transportation to local markets in order to purchase food. Families are sleeping in tents made of cheap tarps buried in dirt in attempt to protect from rain, snakes, and scorpions—not only are these makeshift tents ineffective at keeping these out, they are also excruciatingly hot. 
         </p>
         <p>
           Many of the Syrian refugees in the Almafraq area are from a Bedouin background—their livelihood, which they lost when they ran for their lives, was caring for cattle, sheep and goats. 
@@ -114,7 +114,7 @@ export default class About extends React.Component<AboutProps, any> {
 
         <h4>Logistics</h4>
         <p>
-          Goats will be purchased in groups of about 50 each and distributed to families in order of need over the next several months. The goats will be vet-inspected and purchased from reputable Jordanian breeders.
+          Goats will be purchased in groups of about 50 for $300 each (standard market rate for a healthy milk-producing goat in the Jordanian economy) and distributed to families in order of need over the next several months. The goats will be vet-inspected and purchased from reputable Jordanian breeders.
         </p>
 
         <h4>Testimonial</h4>
