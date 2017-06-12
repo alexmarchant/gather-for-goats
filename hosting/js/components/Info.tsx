@@ -121,9 +121,9 @@ export default class Info extends React.Component<InfoProps, any> {
           <img src={gift} />
           <h4>Gift a Goat!</h4>
           <p>
-            Psst! Mother’s Day is May 14!
+            Psst! Father’s Day is June 18!
             <br/>
-            Download an official Goat Sponsor Certificate— the perfect gift!
+            Download a gift card or official Goat Sponsor Certificate— the perfect gift to print out or email!
           </p>
           <div className="info__download-buttons">
             <a
@@ -134,11 +134,11 @@ export default class Info extends React.Component<InfoProps, any> {
               8.5x11 Certificate
             </a>
             <a
-              href="https://firebasestorage.googleapis.com/v0/b/great-goat-gala.appspot.com/o/MOTHERSDAY.pdf?alt=media&token=819bcfb0-3164-46af-8e8c-01e12262f3b0"
+              href="https://firebasestorage.googleapis.com/v0/b/great-goat-gala.appspot.com/o/FATHERSDAY.jpg?alt=media&token=b038098c-98bf-4c15-99d8-9e3937b4a197"
               className="arrow-link download-button"
               download
             >
-              5x4 Mother's Day Card
+              5x4 Father's Day Card
             </a>
             <a
               href="https://firebasestorage.googleapis.com/v0/b/great-goat-gala.appspot.com/o/KID.pdf?alt=media&token=cdaf0dc4-4dbd-4165-ad3a-accea8ca629a"

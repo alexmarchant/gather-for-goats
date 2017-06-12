@@ -32,8 +32,20 @@ export default class About extends React.Component<AboutProps, any> {
         }
         <h4>The Goal</h4>
         <p>
-          Buy 800 goats for Syrian refugee families living in the desert inJordan to provide a sustainable source of nutrition and hydration for children in this uninhabited area.
-          &nbsp;
+          Buy 800 goats for Syrian refugee families living in the desert in Jordan to provide a sustainable source of nutrition and hydration for children in this uninhabited area.
+        <span className="green-text">
+          {' '}
+          (*See photos of our first round of goat distribution on
+          {' '}
+          <a
+            href="https://www.instagram.com/liftinghandsinternational/"
+            target="_blank"
+          >
+          instagram
+          </a>
+          .)
+        </span>
+          {' '}
           <a
             href="#about__history"
             className="arrow-link"
@@ -60,7 +72,7 @@ export default class About extends React.Component<AboutProps, any> {
 
         <h4>When?</h4>
         <p>
-          The key weekend is May 5-7, when thousands of people around the world will join forces. (But if you need to shift your dates, there’s no wrong time to fund a goat!)
+          Anytime! There's no wrong time to fund a goat, but the sooner the better—these families are in urgent need.
         </p>
 
         <h4>How?</h4>
@@ -103,7 +115,7 @@ export default class About extends React.Component<AboutProps, any> {
         </p>
         <p>
           Many of the Syrian refugees in the Almafraq area are from a Bedouin background—their livelihood, which they lost when they ran for their lives, was caring for cattle, sheep and goats. 
-          &nbsp;
+          {' '}
           <a href="http://www.liftinghandsinternational.org/blog/2017/4/6/goats-for-syrian-bedouin-refugees-in-jordan" className="arrow-link" target="_blank">See Photos</a>
         </p>
 
