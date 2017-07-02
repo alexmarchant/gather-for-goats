@@ -14,13 +14,14 @@ exports.scrapeDonations = functions.https.onRequest((request, response) => {
     let cleanedDonations = page.donations.replace('$', '');
     cleanedDonations = cleanedDonations.replace(',', '');
     const goatsPurchased = Math.floor(cleanedDonations / 300)
-    console.log({cleanedDonations: cleanedDonations, goatsPurchased: goatsPurchased});
+    const adjustedGoatsPurchased = goatsPurchased + 200;
+    console.log({cleanedDonations: cleanedDonations, goatsPurchased: adjustedGoatsPurchased});
 
     // Update database
-    admin.database().ref('/goatsPurchased').set(goatsPurchased)
+    admin.database().ref('/goatsPurchased').set(adjustedGoatsPurchased)
       .then(snapshot => {
         console.log('Saved to db');
-        response.send(`🐐...${goatsPurchased}`);
+        response.send(`🐐...${adjustedGoatsPurchased}`);
       }).catch(err => {
         console.error(err);
         response.end();
