@@ -14,7 +14,7 @@ exports.scrapeDonations = functions.https.onRequest((request, response) => {
     let cleanedDonations = page.donations.replace('$', '');
     cleanedDonations = cleanedDonations.replace(',', '');
     const goatsPurchased = Math.floor(cleanedDonations / 300)
-    const adjustedGoatsPurchased = goatsPurchased + 200;
+    const adjustedGoatsPurchased = goatsPurchased + 100;
     console.log({cleanedDonations: cleanedDonations, goatsPurchased: adjustedGoatsPurchased});
 
     // Update database
