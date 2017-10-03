@@ -9,6 +9,7 @@ import { Sponsor } from './Admin';
 
 interface HomeState {
   goatsPurchased?: number;
+  additionalGoatsPurchased?: number;
   sponsors?: Array<Sponsor>;
 }
 
@@ -18,16 +19,19 @@ export default class Home extends React.Component<any, HomeState> {
 
     this.state = {
       goatsPurchased: null,
+      additionalGoatsPurchased: null,
     };
   }
 
   componentDidMount() {
     firebase.database().ref('/').on('value', (snapshot) => {
       const result = snapshot.val();
+      const additionalGoatsPurchased = result.additionalGoatsPurchased;
       const goatsPurchased = result.goatsPurchased;
       const sponsors = JSON.parse(result.sponsors);
       this.setState({
         goatsPurchased: goatsPurchased,
+        additionalGoatsPurchased: additionalGoatsPurchased,
         sponsors: sponsors,
       });
     });
@@ -39,7 +43,10 @@ export default class Home extends React.Component<any, HomeState> {
         <div className="home__mobile">
           <Header />
           <Nav sponsors={this.state.sponsors} />
-          <GoatGrid goatsPurchased={this.state.goatsPurchased} />
+          <GoatGrid
+            goatsPurchased={this.state.goatsPurchased}
+            additionalGoatsPurchased={this.state.additionalGoatsPurchased}
+          />
         </div>
         <div className="home__desktop">
           <div className="home__desktop-col-left">
@@ -54,7 +61,10 @@ export default class Home extends React.Component<any, HomeState> {
             </div>
           </div>
           <div className="home__desktop-col-right">
-            <GoatGrid goatsPurchased={this.state.goatsPurchased} />
+            <GoatGrid
+              goatsPurchased={this.state.goatsPurchased}
+              additionalGoatsPurchased={this.state.additionalGoatsPurchased}
+            />
           </div>
         </div>
       </div>

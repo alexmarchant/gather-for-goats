@@ -7,6 +7,7 @@ const goatGraphic = require('../../images/goat.svg');
 
 export interface GoatGridProps {
   goatsPurchased?: number;
+  additionalGoatsPurchased?: number;
 }
 
 export default class GoatGrid extends React.Component<GoatGridProps, any> {
@@ -18,23 +19,26 @@ export default class GoatGrid extends React.Component<GoatGridProps, any> {
   }
 
   content() {
-    if (this.props.goatsPurchased === null) {
+    if (this.props.goatsPurchased === null || this.props.additionalGoatsPurchased === null) {
       return (
         <div className="goat-grid__header">
           <h3 className="goat-grid__header-subtitle">Loading...</h3>
         </div>
       );
     } else {
+      const goatsPurchased = this.props.goatsPurchased + this.props.additionalGoatsPurchased;
       return (
         <div>
           <div className="goat-grid__header">
-            <h3 className="goat-grid__header-purchased-count">{this.props.goatsPurchased}/800</h3>
+            <h3 className="goat-grid__header-purchased-count">
+              {goatsPurchased}/800
+            </h3>
             <h3 className="goat-grid__header-subtitle">Goats Purchased</h3>
           </div>
           <div className="goat-grid__grid">
             {_.map(_.range(this.goatCount), (index) => (
               <Goat
-                purchased={index < this.props.goatsPurchased}
+                purchased={index < goatsPurchased}
                 index={index}
                 key={index}
               />

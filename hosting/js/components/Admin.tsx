@@ -74,7 +74,7 @@ export interface Sponsor {
 }
 
 interface LoggedInContentState {
-  goatsPurchased?: number;
+  additionalGoatsPurchased?: number;
   sponsors?: Array<Sponsor>;
   submitting: boolean;
   submitted: boolean;
@@ -85,7 +85,7 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
 		super(props);
 
     this.state = {
-      goatsPurchased: null,
+      additionalGoatsPurchased: null,
       sponsors: null,
       submitting: false,
       submitted: false,
@@ -102,10 +102,10 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
   componentDidMount() {
     firebase.database().ref('/').on('value', (snapshot) => {
       const result = snapshot.val();
-      const goatsPurchased = result.goatsPurchased;
+      const additionalGoatsPurchased = result.additionalGoatsPurchased;
       const sponsors = JSON.parse(result.sponsors);
       this.setState({
-        goatsPurchased: goatsPurchased,
+        additionalGoatsPurchased: additionalGoatsPurchased,
         sponsors: sponsors,
       });
     });
@@ -175,7 +175,7 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
     this.setState({submitting: true});
 
     const updates = {
-      goatsPurchased: this.state.goatsPurchased,
+      additionalGoatsPurchased: this.state.additionalGoatsPurchased,
       sponsors: JSON.stringify(this.state.sponsors),
     };
 
@@ -205,15 +205,15 @@ class LoggedInContent extends React.Component<any, LoggedInContentState> {
       <div>
         <button onClick={this.handleLogOutClick}>Log Out</button>
         {
-          (this.state.goatsPurchased === null) ?
+          (this.state.additionalGoatsPurchased === null) ?
           <div>Loading...</div> :
           <form onSubmit={this.handleFormSubmit}>
             <h2>Update Data:</h2>
-            <h3>Goats Purchased</h3>
+            <h3>Additional Goats Purchased (outside of donorbox.com)</h3>
             <input
               type="number"
-              name="goatsPurchased"
-              value={this.state.goatsPurchased}
+              name="additionalGoatsPurchased"
+              value={this.state.additionalGoatsPurchased}
               onChange={this.handleInputChange}
             />
             <h3>Sponsors</h3>
